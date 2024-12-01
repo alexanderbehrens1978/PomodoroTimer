@@ -230,7 +230,7 @@ void updateLCD() {
     lcd.print(":");
     if (seconds < 10) lcd.print("0");
     lcd.print(seconds);
-    lcd.print(" |C: ");
+    lcd.print(" |C:");
     lcd.print(cyclesUntilLongPause);
   } else if (state == PAUSE) {
     lcd.print("Pause Phase     ");
