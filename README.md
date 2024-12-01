@@ -21,3 +21,7 @@ Standard Longpause 15min
 Wenn die Zeit runterläuft, dann wird rechts mit C:4 angezeigt
 
 wieviele Runden bis zur ersten 15min Pause noch da sind.
+
+Nach 15 Sekunden ohne Tastendruck startet der Timer
+
+Mit der Taste Right wird eine Phase übersprungen
