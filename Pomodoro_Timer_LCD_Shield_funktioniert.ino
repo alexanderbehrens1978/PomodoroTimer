@@ -1,6 +1,3 @@
-// Pomodoro Timer für Atmega 2560 und Keypad LCD Shield HW-555
-// Mit Buzzer auf Pin 50
-//
 #include <LiquidCrystal.h>
 
 // LCD Initialisierung (Pins für RS, E, D4, D5, D6, D7)
@@ -19,19 +16,23 @@ const int buzzerPin = 50;
 
 // Menü-Variablen
 int menuIndex = 0;
-const char* menuItems[] = {"Set Work Time", "Set Pause Time", "Set Beep Time", "Set Min Time", "Set Long Pause", "Start Timer", "Reset Timer", "Help"};
+const char* menuItems[] = {"Set Work Time", "Set Pause Time", "Set Beep Time", "Set Min Time", "Set Long Pause", "Set AutoStart Time", "Start Timer", "Reset Timer", "Help"};
 const int menuSize = sizeof(menuItems) / sizeof(menuItems[0]);
 
 // Timer-Variablen (in Minuten und Sekunden)
-int workTime = 25;    // Standard-Arbeitszeit (Minuten)
-int pauseTime = 5;    // Standard-Pausenzeit (Minuten)
-int longPauseTime = 15; // Dauer der langen Pause (Minuten)
-int beepTime = 5;     // Standard-Piepdauer (Sekunden)
-int minTime = 1;      // Mindestzeit für Arbeits- und Pausenzeit (Minuten)
-int remainingTime = 0; // Verbleibende Zeit in Sekunden
-int cycleCount = 0;   // Anzahl abgeschlossener Arbeitszyklen
+int workTime = 25;        // Standard-Arbeitszeit (Minuten)
+int pauseTime = 5;        // Standard-Pausenzeit (Minuten)
+int longPauseTime = 15;   // Dauer der langen Pause (Minuten)
+int beepTime = 5;         // Standard-Piepdauer (Sekunden)
+int minTime = 1;          // Mindestzeit für Arbeits- und Pausenzeit (Minuten)
+int autoStartTime = 15;   // Autostart-Zeit in Sekunden
+int remainingTime = 0;    // Verbleibende Zeit in Sekunden
+int cycleCount = 0;       // Anzahl abgeschlossener Arbeitszyklen
 bool settingTime = false;
-bool paused = true; // Timer-Status
+bool paused = true;       // Timer-Status
+
+// Autostart-Variablen
+unsigned long lastInteraction = 0; // Letzte Benutzerinteraktion
 
 // Timer-Status
 enum TimerState { STOPPED, WORK, PAUSE, LONG_PAUSE };
@@ -48,14 +49,22 @@ void setup() {
   delay(2000);
   lcd.clear();
   displayMenu();
+  lastInteraction = millis(); // Initialer Zeitstempel für Autostart
 }
 
 void loop() {
   int key = analogRead(A0); // Tastenwert lesen
 
-  // Tastenwert auf Serial Monitor ausgeben
-  Serial.print("Key Value: ");
-  Serial.println(key);
+  // Autostart-Logik: Prüfen, ob Autostart-Zeit abgelaufen ist
+  if (millis() - lastInteraction >= autoStartTime * 1000 && state == STOPPED && !settingTime) {
+    startTimer(); // Timer automatisch starten
+    return;
+  }
+
+  // Wenn eine Taste gedrückt wurde, Autostart-Zeitstempel aktualisieren
+  if (key < KEY_NONE - 10) {
+    lastInteraction = millis();
+  }
 
   if (!settingTime) {
     // Navigation durch das Menü
@@ -69,6 +78,9 @@ void loop() {
       delay(300);
     } else if (key > KEY_SELECT - 10 && key < KEY_SELECT + 10) { // SELECT-Taste
       executeMenuAction();
+      delay(300);
+    } else if (!paused && key > KEY_RIGHT - 10 && key < KEY_RIGHT + 10) { // RIGHT-Taste während einer Phase
+      endPhase(); // Phase überspringen
       delay(300);
     }
   } else {
@@ -152,13 +164,21 @@ void executeMenuAction() {
       lcd.print(longPauseTime);
       lcd.print(" min         ");
       break;
-    case 5: // Timer starten
+    case 5: // Autostart-Zeit einstellen
+      settingTime = true;
+      lcd.setCursor(0, 0);
+      lcd.print("AutoStart Time:");
+      lcd.setCursor(0, 1);
+      lcd.print(autoStartTime);
+      lcd.print(" sec         ");
+      break;
+    case 6: // Timer starten
       startTimer();
       break;
-    case 6: // Timer zurücksetzen
+    case 7: // Timer zurücksetzen
       resetTimer();
       break;
-    case 7: // Hilfe anzeigen
+    case 8: // Hilfe anzeigen
       showHelp();
       break;
   }
@@ -191,6 +211,11 @@ void adjustTime(int delta) {
     lcd.setCursor(0, 1);
     lcd.print(longPauseTime);
     lcd.print(" min         ");
+  } else if (menuIndex == 5) { // Autostart-Zeit
+    autoStartTime = max(5, autoStartTime + delta); // Mindestens 5 Sekunden
+    lcd.setCursor(0, 1);
+    lcd.print(autoStartTime);
+    lcd.print(" sec         ");
   }
 }
 
