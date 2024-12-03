@@ -16,7 +16,7 @@ const int buzzerPin = 50;
 #define KEY_NONE    1023
 
 // Version des Programms
-const char* VERSION = "1.1";
+const char* VERSION = "1.2";
 
 // Menü-Variablen
 int menuIndex = 0;
