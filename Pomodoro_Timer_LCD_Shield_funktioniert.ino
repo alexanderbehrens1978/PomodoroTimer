@@ -16,7 +16,7 @@ const int buzzerPin = 50;
 #define KEY_NONE    1023
 
 // Version des Programms
-const char* VERSION = "1.6";
+const char* VERSION = "1.7";
 
 // Menü-Variablen
 int menuIndex = 0;
@@ -317,7 +317,7 @@ void updateLCD() {
   } else if (state == PAUSE) {
     lcd.print("Pause Time ");
   } else if (state == LONG_PAUSE) {
-    lcd.print("Long Pause: ");
+    lcd.print("Long Pause ");
   }
 
   int minutes = remainingTime / 60;
@@ -331,7 +331,7 @@ void updateLCD() {
 
   lcd.setCursor(0, 1);
   if (state == LONG_PAUSE) {
-    lcd.print("Cycle: Long Pause");
+    lcd.print("Cycle Long Pause");
   } else {
     lcd.print("Cycle: ");
     lcd.print(cycleCount + 1); // Aktueller Zyklus
