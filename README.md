@@ -18,7 +18,11 @@ Standard Piepzeit 5 Sec
 
 Standard Longpause 15min
 
-Wenn die Zeit runterläuft, dann wird rechts mit C:4 angezeigt
+Mit Left und Right werden die Zeiten im Menü in +/- 1 Schritten geändert
+
+Mit Up und Down werden die Zeiten im Menü in +/- 5 Schritten geändert
+
+Wenn die Zeit runterläuft, dann wird 1/4 angezeigt.
 
 wieviele Runden bis zur ersten 15min Pause noch da sind.
 
