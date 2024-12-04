@@ -16,7 +16,7 @@ const int buzzerPin = 50;
 #define KEY_NONE    1023
 
 // Version des Programms
-const char* VERSION = "1.2";
+const char* VERSION = "1.6";
 
 // Menü-Variablen
 int menuIndex = 0;
@@ -87,6 +87,7 @@ void loop() {
 
   // Autostart-Logik: Prüfen, ob Autostart-Zeit abgelaufen ist
   if (millis() - lastInteraction >= autoStartTime * 1000 && state == STOPPED && !settingTime) {
+    lcd.clear(); // Display vor Autostart säubern
     startTimer(); // Timer automatisch starten
     return;
   }
@@ -312,39 +313,30 @@ void executeMenuAction() {
 void updateLCD() {
   lcd.setCursor(0, 0);
   if (state == WORK) {
-    lcd.print("Work Phase      ");
-    lcd.setCursor(0, 1);
-    int minutes = remainingTime / 60;
-    int seconds = remainingTime % 60;
-    int remainingCycles = maxCycles - cycleCount;
-
-    lcd.print("T:");
-    lcd.print(minutes);
-    lcd.print(":");
-    if (seconds < 10) lcd.print("0");
-    lcd.print(seconds);
-    lcd.print(" C:");
-    lcd.print(remainingCycles);
+    lcd.print("Work Time ");
   } else if (state == PAUSE) {
-    lcd.print("Pause Phase     ");
-    lcd.setCursor(0, 1);
-    int minutes = remainingTime / 60;
-    int seconds = remainingTime % 60;
-    lcd.print("Time: ");
-    lcd.print(minutes);
-    lcd.print(":");
-    if (seconds < 10) lcd.print("0");
-    lcd.print(seconds);
+    lcd.print("Pause Time ");
   } else if (state == LONG_PAUSE) {
-    lcd.print("Long Pause      ");
-    lcd.setCursor(0, 1);
-    int minutes = remainingTime / 60;
-    int seconds = remainingTime % 60;
-    lcd.print("Time: ");
-    lcd.print(minutes);
-    lcd.print(":");
-    if (seconds < 10) lcd.print("0");
-    lcd.print(seconds);
+    lcd.print("Long Pause: ");
+  }
+
+  int minutes = remainingTime / 60;
+  int seconds = remainingTime % 60;
+
+  if (minutes < 10) lcd.print("0"); // Minuten zweistellig
+  lcd.print(minutes);
+  lcd.print(":");
+  if (seconds < 10) lcd.print("0"); // Sekunden zweistellig
+  lcd.print(seconds);
+
+  lcd.setCursor(0, 1);
+  if (state == LONG_PAUSE) {
+    lcd.print("Cycle: Long Pause");
+  } else {
+    lcd.print("Cycle: ");
+    lcd.print(cycleCount + 1); // Aktueller Zyklus
+    lcd.print("/");
+    lcd.print(maxCycles);
   }
 }
 
