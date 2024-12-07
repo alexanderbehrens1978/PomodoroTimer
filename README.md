@@ -40,22 +40,41 @@ Wenn keine Daten hinterlegt sind, dann werden die Standardwerte(siehe oben) gela
 
 Case for Arduino Uno, LCD Keypad Shield and Stepper Motor Driver by AndreySamokhin on Thingiverse: https://www.thingiverse.com/thing:4194107
 
-![Menu 1 9 Work Time Cycle 4 von 4](https://github.com/user-attachments/assets/13c79a63-56df-4a5c-bdeb-59aa53741b6d)
-![Menu 1 9 Work Time Cycle 3 von 4](https://github.com/user-attachments/assets/78b5ae20-36f1-45b5-9dca-3db95a9729a4)
-![Menu 1 9 Work Time Cycle 2 von 4](https://github.com/user-attachments/assets/4db04930-2933-464b-91d1-aeacafee8582)
-![Menu 1 9 Work Time Cycle 1 von 4](https://github.com/user-attachments/assets/91e93f9d-f842-414d-8c27-1f4579436561)
-![Menu 1 9 Total Work Time](https://github.com/user-attachments/assets/7ca301f4-61cf-4c25-9fa3-233628c29ae7)
-![Menu 1 9 Start Timer](https://github.com/user-attachments/assets/df04a12b-2952-488b-b340-c9d6e63fddd0)
-![Menu 1 9 Set Work Time](https://github.com/user-attachments/assets/526a1dbb-4a05-4478-bd2f-23528ebe025a)
-![Menu 1 9 Set Pause Time](https://github.com/user-attachments/assets/0b3779be-e9f1-47c3-8985-c5c52f20d653)
-![Menu 1 9 Set Min Time](https://github.com/user-attachments/assets/faebef08-cedd-4591-af93-010467bb5a04)
-![Menu 1 9 Set Long Pause](https://github.com/user-attachments/assets/cf858f44-cab7-4dae-8589-019f32563ab5)
-![Menu 1 9 Set Beep Time](https://github.com/user-attachments/assets/8db5f62f-c7d9-4746-baf8-51cc10b639cf)
-![Menu 1 9 Set Autostart Time](https://github.com/user-attachments/assets/e1a276c4-434b-413f-a661-3f4957067d3b)
-![Menu 1 9 Reset Timer](https://github.com/user-attachments/assets/ab8b96ea-fc14-41f8-9eac-9ff30e05e14c)
-![Menu 1 9 Long Pause](https://github.com/user-attachments/assets/c092d4d0-3c90-4e38-a734-2b89fde80335)
-![Menu 1 9 Help](https://github.com/user-attachments/assets/b2c48bd5-17e4-4d00-b2cf-9693379703a8)
-![Menu 1 9 Beeping TIme Left](https://github.com/user-attachments/assets/0ca2794e-d1a4-4bfe-b962-663ecb3d5607)
-![Gehaeuse2](https://github.com/user-attachments/assets/9543a6a4-a3ac-422f-9d90-9f6517091c9a)
-![Gehaeuse1](https://github.com/user-attachments/assets/365b2a6c-26b5-44ae-8f7b-cc817960b10e)
 
+![0 Gehaeuse2](https://github.com/user-attachments/assets/8ca5e7df-0740-4893-b68a-90a08cbc7919)
+
+![0 Gehaeuse1](https://github.com/user-attachments/assets/ef4fee8e-23f0-462f-a1db-12472c82816e)
+
+![1 Pomodoro Timer Version 1 9](https://github.com/user-attachments/assets/dd9e1d47-b75e-481d-b4e8-b59408e7259c)
+
+![2 Menu 1 9 Set Work Time](https://github.com/user-attachments/assets/401b5220-8963-479c-bf88-430f9a045e36)
+
+![3 Menu 1 9 Total Work Time](https://github.com/user-attachments/assets/e7b4e699-495e-46c2-98d0-665b4ee3d870)
+
+![4 Menu 1 9 Help](https://github.com/user-attachments/assets/242b9cb8-ae28-46a7-b7aa-1d01bf60f242)
+
+![5 Menu 1 9 Reset Timer](https://github.com/user-attachments/assets/d979b095-ae76-4df7-8f0f-a05699b58c3a)
+
+![6 Menu 1 9 Start Timer](https://github.com/user-attachments/assets/12b34df2-bf32-4b73-8086-ad893dc3b90a)
+
+![7 Menu 1 9 Set Autostart Time](https://github.com/user-attachments/assets/45fc5227-ef11-4f9c-b563-8b993214c12b)
+
+![8 Menu 1 9 Set Long Pause](https://github.com/user-attachments/assets/28aef997-374e-4958-8b95-e0140ac5898d)
+
+![9 Menu 1 9 Set Min Time](https://github.com/user-attachments/assets/0095425b-5f29-487b-87ef-1b10d780fcaa)
+
+![10 Menu 1 9 Set Beep Time](https://github.com/user-attachments/assets/653db98a-d3fe-4902-b067-5d945e34632d)
+
+![11 Menu 1 9 Set Pause Time](https://github.com/user-attachments/assets/816fc5a6-e2cd-4e93-8ff0-c806bcc8fcc5)
+
+![12 Menu 1 9 Work Time Cycle 1 von 4](https://github.com/user-attachments/assets/c474f7ac-0c61-49fd-b0e2-0cf581f80b8f)
+
+![13 Menu 1 9 Work Time Cycle 2 von 4](https://github.com/user-attachments/assets/62c6f712-9373-4b10-9b0d-b7bacf66119f)
+
+![14 Menu 1 9 Work Time Cycle 3 von 4](https://github.com/user-attachments/assets/a0ff7d56-7e7b-406c-ba61-028edfe58eb2)
+
+![15 Menu 1 9 Work Time Cycle 4 von 4](https://github.com/user-attachments/assets/51daee63-2888-4076-94e3-5ebe0b22e3b1)
+
+![16 Menu 1 9 Beeping TIme Left](https://github.com/user-attachments/assets/43d0e014-68c8-41eb-ae54-a3344de82566)
+
+![17 Menu 1 9 Long Pause](https://github.com/user-attachments/assets/00ca3eb0-b342-4679-a6ac-6c9feade9b14)
